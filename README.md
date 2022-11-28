@@ -4,12 +4,25 @@
 
 The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers (Energy Suppliers) to query Projects and Measures that exist within the TrustMark Retrofit Platform under ECO4 and ECO+ for purposes of verifying data correctness to improve downstream Ofgem processes.
 
+Note: This may be subject to change due to Ofgem requirmements.
+
 ## API
 
 ### Access
 
-A Data Sharing Agremeent will need to be in place before live access can can be provided.
+A Data Sharing Agreement will need to be in place before live access can can be provided.
 You will require an `x-api-key` which will be provided by TrustMark during onboarding.
+
+
+### Service Fees
+
+Payable by the party signing the Data Sharing Agreement.
+
+| Service                  | Fee (+VAT)               | Notes                                                            |
+| ------------------------ | ------------------------ | ---------------------------------------------------------------- |
+| Setup                    | £1500                    |                                                                  |
+| Annual Service Charge    | £4750                    |  Annual increase capped at RPI +3%                               |
+
 
 ### Response Codes
 
@@ -28,6 +41,46 @@ Almost likely that a missing or malformed request has been provided, often due t
 > POST /api/RetrofitProject
 
 Provides Project data for the project reference provided which can be accessed at any point during the lifetime of a Project created in the TrustMark Retrofit.
+
+| Field                             | Information                              |
+| --------------------------------- | ---------------------------------------- |
+| projectReference                  | The project reference of the Project for this Lodgement to be associated with e.g. P1000 |
+| projectType                       | ECO4 |
+| address                           |      | 
+| premisesTenure                    |           | 
+| propertyType                      |  Value from the taxonomy [PropertyTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#propertytypes)   | 
+| createdDate                       |      | 
+| isComplete                        | true / false     | 
+| completionDate                    |      | 
+| startSAPScore                     |      |               
+| finalSAPScore                     |      | 
+| status                            | Draft / inProgress / Complete      | 
+| retrofitAssessmentId              |      | 
+| completionCertificateNumber       |  e.g. P1000-C    | 
+| premisesTenure                    |  Value from the taxonomy [TenureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#propertytypes    | 
+| projectDefects [] | Array of new defects that have been identified |
+| - defectType | Value from the taxonomy [DefectTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#defecttypes) |
+| - repairCost |  |
+| - toBeAddressedInProject | true / false |
+| measuresEvaluated [] | |
+| - improvementOptionEvaluationId | can be used to track which measures evaluation was used (there can be more than one) |
+| - measureEligibilityStatus | Value from the taxonomy [MeasureEligibilityStatusTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measureeligibilitystatustypes) |
+| - workTypeCode | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - measureType  | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - eco4Name     | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - improvementOptionEvaluationMeasureId  | can be used to track which measures evaluataion was installed |
+| selectedMeasures [] | which measures have been selected for inclusion in a plan|
+| - measureEligibilityStatus | Value from the taxonomy [MeasureEligibilityStatusTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measureeligibilitystatustypes) |
+| - measureType  | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - eco4Name     | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - workTypeCode | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| - improvementOptionEvaluationMeasureId  | can be used to track which measures evaluataion was installed |
+| totalRepairCost | |
+| actualRepairCost | actual cost of repairs as lodged |
+| floorAreaM2 | e.g. 121.4 |
+| buildingServicesGas | Y / N |
+| isSuccess | true / false |
+| message | Project Reference P1000|
 
 #### Request
 
