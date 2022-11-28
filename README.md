@@ -4,7 +4,9 @@
 
 The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers (Energy Suppliers) to query Projects and Measures that exist within the TrustMark Retrofit Platform under ECO4 and ECO+ for purposes of verifying data correctness to improve downstream Ofgem processes.
 
-Note: This may be subject to change due to Ofgem requirmements.
+Notes: 
+* This may be subject to change due to Ofgem requirmements.
+* General project and lodgement concepts resource [Retrofit Integration API](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration).
 
 ## API
 
@@ -47,7 +49,6 @@ Provides Project data for the project reference provided which can be accessed a
 | projectReference                  | The project reference of the Project for this Lodgement to be associated with e.g. P1000 |
 | projectType                       | ECO4 |
 | address                           |      | 
-| premisesTenure                    |           | 
 | propertyType                      |  Value from the taxonomy [PropertyTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#propertytypes)   | 
 | createdDate                       |      | 
 | isComplete                        | true / false     | 
@@ -57,7 +58,7 @@ Provides Project data for the project reference provided which can be accessed a
 | status                            | Draft / inProgress / Complete      | 
 | retrofitAssessmentId              |      | 
 | completionCertificateNumber       |  e.g. P1000-C    | 
-| premisesTenure                    |  Value from the taxonomy [TenureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#propertytypes    | 
+| premisesTenure                    |  Value from the taxonomy [TenureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#tenuretypes)  | 
 | projectDefects [] | Array of new defects that have been identified |
 | - defectType | Value from the taxonomy [DefectTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#defecttypes) |
 | - repairCost |  |
@@ -255,6 +256,38 @@ Your response data will be split into successful and failed responses with each 
 
 Provides measure data for the UMR provided which can be accessed at any point during the lifetime of a Lodgement created in the TrustMark Retrofit.
 
+
+| Field                             | Information                              |
+| --------------------------------- | ---------------------------------------- |
+| umr                               | Unique Measure Reference e.g. P4306NGJM |
+| projectType                       | ECO4 |
+| measureCategory                   |      |
+| standard                          |      |
+| handoverDate                      |      |
+| workCarriedOutByTMLN              | TMLN of the business who installed the measure     |
+| registeredBusinessName            | Name of the business who installed the measure     |
+| measureType                       |      |
+| productModel                      |      |
+| guaranteeName                     |      |
+| PercentageMeasureInstalled        | Has 100% of measure been installed yes/no        |
+| operativeCertificationReference   | Where any other certification data is provided  |
+| innovationMeasureNumber           |  Value from the taxonomy [Innovation Measures](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#innovationmeasuretypes)    |
+| retrofitProjectReference          | e.g. P4306      |
+| isComplete                        |      |
+| status                            |      |
+| Defects [] | Array of defects |
+| - toBeAddressedInProject | true / false |
+| - repairCost |  |
+| - defectType | Value from the taxonomy [DefectTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#defecttypes) |
+| totalRepairCost | |
+| actualRepairCost | actual cost of repairs as lodged |
+| certificateNumber   | Certificate associated with this measure e.g. P4306-1 |
+| lodgementId | |
+| improvementOptionEvaluationMeasureId | Links to porject record |
+| eco4Name |  e.g 'CWI_0.040' Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| workTypeCode | e.g. DW-101 Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+
+
 #### Request
 
 Accepts an array of umr and postcode pairs. Each pair must be a correct match as lodged in order to return a success result; otherwise expect a detailed reason back.
@@ -310,7 +343,7 @@ Your response data will be split into successful and failed responses with each 
         "registeredBusinessName": "TrustMark_All_Trades_Test_Only",
         "measureType": "Cavity wall insulation (0.040)",
         "productModel": "CWI",
-        "guaranteeName": "CIGA 25 Year Guarantee",
+        "guaranteeName": "Some 25 Year Guarantee",
         "percentageMeasureInstalled": "Yes",
         "operativeCertificationReference": null,
         "innovationMeasureNumber": "009",
