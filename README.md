@@ -222,11 +222,11 @@ Accepts an array of umr and postcode pairs. Each pair must be a correct match as
 ```json
 [
   {
-    "projectReference": "P4306",
+    "umr": "P4306NGJM",
     "postcode": "RG21 4EB"
   },
   {
-    "projectReference": "P4307",
+    "umr": "P4307PMWJ",
     "postcode": "NG4 6OP"
   }
 ]
