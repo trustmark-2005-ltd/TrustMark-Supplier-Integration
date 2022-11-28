@@ -58,11 +58,11 @@ Accepts an array of project references and postcode pairs. Each pair must be a c
 
 #### Response
 
-Your response data will be split into successful and failed responses with each `successfullResponses` and `failedResponses` providing a collection for your review.
+Your response data will be split into successful and failed responses with each `successfulResponses` and `failedResponses` providing a collection for your review.
 
 ```json
 {
-    "successfullResponses": [],
+    "successfulResponses": [],
     "failedResponses": []
 }
 ```
@@ -71,7 +71,7 @@ Your response data will be split into successful and failed responses with each 
 
 ```json
 {
-  "successfullResponses": [
+  "successfulResponses": [
     {
       "model": {
         "projectReference": "P4306",
@@ -231,11 +231,11 @@ Accepts an array of umr and postcode pairs. Each pair must be a correct match as
 
 #### Response
 
-Your response data will be split into successful and failed responses with each `successfullResponses` and `failedResponses` providing a collection for your review.
+Your response data will be split into successful and failed responses with each `successfulResponses` and `failedResponses` providing a collection for your review.
 
 ```json
 {
-    "successfullResponses": [],
+    "successfulResponses": [],
     "failedResponses": []
 }
 ```
@@ -244,7 +244,7 @@ Your response data will be split into successful and failed responses with each 
 
 ```json
 {
-  "successfullResponses": [
+  "successfulResponses": [
     {
       "model": {
         "umr": "P4306NGJM",
