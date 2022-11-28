@@ -7,6 +7,7 @@ The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers (Energy Suppliers
 Notes: 
 * This may be subject to change due to Ofgem requirmements.
 * General project and lodgement concepts resource [Retrofit Integration API](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration).
+* Meassure details can be found in the [Data Dictionary](https://www.trustmark.org.uk/tradespeople/data-warehouse) and items relating to PAS2035 defects and eligibility can be found in the [Structured Retrofit Data Model](https://www.trustmark.org.uk/tradespeople/data-warehouse).
 
 ## API
 
@@ -49,7 +50,7 @@ Provides Project data for the project reference provided which can be accessed a
 | projectReference                  | The project reference of the Project for this Lodgement to be associated with e.g. P1000 |
 | projectType                       | ECO4 |
 | address                           |      | 
-| propertyType                      |  Value from the taxonomy [PropertyTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#propertytypes)   | 
+| propertyType                      |      | 
 | createdDate                       |      | 
 | isComplete                        | true / false     | 
 | completionDate                    |      | 
@@ -58,26 +59,26 @@ Provides Project data for the project reference provided which can be accessed a
 | status                            | Draft / inProgress / Complete      | 
 | retrofitAssessmentId              |      | 
 | completionCertificateNumber       |  e.g. P1000-C    | 
-| premisesTenure                    |  Value from the taxonomy [TenureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#tenuretypes)  | 
+| premisesTenure                    |      | 
 | projectDefects [] | Array of new defects that have been identified |
-| - defectType | Value from the taxonomy [DefectTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#defecttypes) |
+| - defectType | Condensation, Cracks / Pointing Defects, Leaks, Mould Growth, Rising Damp, Rubble in Cavity, Structural Defect, Wet Rot / Dry Rot, Other  |
 | - repairCost |  |
-| - toBeAddressedInProject | true / false |
+| - toBeAddressedInProject | True / False |
 | measuresEvaluated [] | |
-| - improvementOptionEvaluationId | can be used to track which measures evaluation was used (there can be more than one) |
-| - measureEligibilityStatus | Value from the taxonomy [MeasureEligibilityStatusTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measureeligibilitystatustypes) |
-| - workTypeCode | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - measureType  | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - eco4Name     | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - improvementOptionEvaluationMeasureId  | can be used to track which measures evaluataion was installed |
-| selectedMeasures [] | which measures have been selected for inclusion in a plan|
-| - measureEligibilityStatus | Value from the taxonomy [MeasureEligibilityStatusTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measureeligibilitystatustypes) |
-| - measureType  | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - eco4Name     | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - workTypeCode | Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| - improvementOptionEvaluationMeasureId  | can be used to track which measures evaluataion was installed |
+| - improvementOptionEvaluationId | Can be used to track which measures evaluation was used (there can be more than one) |
+| - measureEligibilityStatus | Eligible, Access issues, Alternative funding, Conservation area, Customer declined, Inhabitation of protected species, Insufficient funding, Listed building, Property suitability, Unlawful |
+| - workTypeCode | Value from Data Dictionary Work Type sheet |
+| - measureType  |  |
+| - eco4Name     |  |
+| - improvementOptionEvaluationMeasureId  | Can be used to track which measures evaluataion was installed |
+| selectedMeasures [] | Which measures have been selected for inclusion in a plan|
+| - measureEligibilityStatus | |
+| - measureType  | |
+| - eco4Name     | |
+| - workTypeCode | |
+| - improvementOptionEvaluationMeasureId  | Can be used to track which measures evaluataion was installed |
 | totalRepairCost | |
-| actualRepairCost | actual cost of repairs as lodged |
+| actualRepairCost | Actual cost of repairs as lodged |
 | floorAreaM2 | e.g. 121.4 |
 | buildingServicesGas | Y / N |
 | isSuccess | true / false |
@@ -271,21 +272,21 @@ Provides measure data for the UMR provided which can be accessed at any point du
 | guaranteeName                     |      |
 | PercentageMeasureInstalled        | Has 100% of measure been installed yes/no        |
 | operativeCertificationReference   | Where any other certification data is provided  |
-| innovationMeasureNumber           |  Value from the taxonomy [Innovation Measures](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#innovationmeasuretypes)    |
+| innovationMeasureNumber           | Value from Innovation Measures sheet in Data Dictionary  |
 | retrofitProjectReference          | e.g. P4306      |
 | isComplete                        |      |
 | status                            |      |
 | Defects [] | Array of defects |
 | - toBeAddressedInProject | true / false |
 | - repairCost |  |
-| - defectType | Value from the taxonomy [DefectTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#defecttypes) |
+| - defectType |  |
 | totalRepairCost | |
-| actualRepairCost | actual cost of repairs as lodged |
+| actualRepairCost | Actual cost of repairs as lodged |
 | certificateNumber   | Certificate associated with this measure e.g. P4306-1 |
 | lodgementId | |
 | improvementOptionEvaluationMeasureId | Links to porject record |
-| eco4Name |  e.g 'CWI_0.040' Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
-| workTypeCode | e.g. DW-101 Value from the taxonomy [MeasureTypes](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration#measuretypes) |
+| eco4Name |  e.g 'CWI_0.040' Value from the Data Dictionary WorkType sheet |
+| workTypeCode | e.g. DW-101 Value from the Data Dictionary WorkType sheet |
 
 
 #### Request
