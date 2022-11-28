@@ -305,6 +305,6 @@ Your response data will be split into successful and failed responses with each 
 
 ## Postman Examples
 
-An example collection is available to import, copy this link `https://techinfluenceltd.slack.com/archives/D01BNRMD268/p1669627534843339` and use the 'Import From Link' feature in Postman. Once imported, update the variables in the API Collection with your own x-api-key as provided by TrustMark.
+An example collection is available to import, copy this link `https://api.postman.com/collections/3727645-1b5173a2-3a40-40f5-8ed9-b30941c5af4c?access_key=PMAT-01GJYRWDJ6WEW3WP0WR7SSC6EZ` and use the 'Import From Link' feature in Postman. Once imported, update the variables in the API Collection with your own x-api-key as provided by TrustMark.
 
 If you don't have Postman installed, you can get a copy here https://www.postman.com
