@@ -2,12 +2,13 @@
 
 ## Introduction
 
-The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers to query Projects and Measures that exist within the TrustMark Retrofit Platform under ECO4 and ECO+ for purposes of verifying data correctness to improve downstream Ofgem processes.
+The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers (Energy Suppliers) to query Projects and Measures that exist within the TrustMark Retrofit Platform under ECO4 and ECO+ for purposes of verifying data correctness to improve downstream Ofgem processes.
 
 ## API
 
 ### Access
 
+A Data Sharing Agremeent will need to be in place before live access can can be provided.
 You will require an `x-api-key` which will be provided by TrustMark during onboarding.
 
 ### Response Codes
