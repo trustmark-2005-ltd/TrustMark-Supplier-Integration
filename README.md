@@ -22,16 +22,6 @@ Success status codes confirm that your request worked as expected.
 
 Almost likely that a missing or malformed request has been provided, often due to incorrect data-types being provided. Check your request with the documentation.
 
-#### 422 Unprocessable Entity
-
-A detailed reason will be provided to indicate how to resolve processing the information provided. For example;
-
-```json
-{
-  "message": "Incorrect postcode supplied""
-}
-```
-
 ### RetrofitProject
 
 > POST /api/RetrofitProject
@@ -69,6 +59,13 @@ Accepts an array of project references and postcode pairs. Each pair must be a c
 #### Response
 
 Your response data will be split into successful and failed responses with each `successfullResponses` and `failedResponses` providing a collection for your review.
+
+```json
+{
+    "successfullResponses": [],
+    "failedResponses": []
+}
+```
 
 ##### Example Response
 
@@ -235,6 +232,13 @@ Accepts an array of umr and postcode pairs. Each pair must be a correct match as
 #### Response
 
 Your response data will be split into successful and failed responses with each `successfullResponses` and `failedResponses` providing a collection for your review.
+
+```json
+{
+    "successfullResponses": [],
+    "failedResponses": []
+}
+```
 
 ##### Example Response
 
