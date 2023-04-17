@@ -50,7 +50,7 @@ Provides Project data for the project reference provided which can be accessed a
 | Field                             | Information                              |
 | --------------------------------- | ---------------------------------------- |
 | projectReference                  | The project reference of the Project for this Lodgement to be associated with e.g. P1000 |
-| projectType                       | ECO4 |
+| projectType                       | ECO4 / GBIS |
 | address                           |      | 
 | propertyType                      |      | 
 | createdDate                       |      | 
