@@ -139,7 +139,7 @@ Your response data will be split into successful and failed responses with each 
           "address2": "Basing View",
           "town": "Basingstoke",
           "postcode": "RG21 4EB",
-          "uprn": "100050092133"
+          "uprn": "10008507326"
         },
         "propertyType": "House",
         "createdDate": "2022-11-27T22:56:22.958+00:00",
@@ -401,7 +401,7 @@ Your response data will be split into successful and failed responses with each 
 
 > POST /api/RetrofitProjectUPRNStatus
 
-Checks for existing projects under the GBIS fund against the TMLN and UPRN provided.
+Checks for existing projects under the GBIS fund against the project owner TMLN (The Retrofit Cooridnator who created it) and UPRN provided.
 
 Returns a code to indicate the existence of any existing projects against the UPRN and TMLN. The code will be one of the following:
 * OK - nothing found
@@ -412,7 +412,7 @@ Returns a code to indicate the existence of any existing projects against the UP
 | Field                      | Information                              |
 | -------------------------- | ---------------------------------------- |
 | ownerTMLN                  | The TMLN to check                        |
-| uprn                       | The UPRn to check                        |
+| uprn                       | The UPRN to check                        |
 
 #### Request
 
@@ -427,8 +427,8 @@ Returns a code to indicate the existence of any existing projects against the UP
 
 ```json
 {
-  "ownerTMLN": "300943",
-  "uprn": "100050092133"
+  "ownerTMLN": "1399311",
+  "uprn": " 10008507326"
 }
 ```
 
@@ -447,8 +447,8 @@ Returns a code to indicate the existence of any existing projects against the UP
 
 ```json
 {
-  "uprn": "100050092133",
-  "checkedTMLN": "300943",
+  "uprn": "10008507326",
+  "checkedTMLN": "1399311",
   "checkedFundType": "GBIS",
   "code": "UPRN_EXISTS_FIRST_AND_THIRD"
 }
