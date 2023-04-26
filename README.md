@@ -397,6 +397,43 @@ Your response data will be split into successful and failed responses with each 
 }
 ```
 
+### RetrofitProjectUPRNStatus
+
+> POST /api/RetrofitProjectUPRNStatus
+
+Checks for existing projects under the GBIS fund against the TMLN and UPRN provided.
+
+Returns a code to indicate the existence of any existing projects against the UPRN and TMLN. The code will be one of the following:
+* OK - nothing found
+* UPRN_EXISTS_FIRST - The TMLN has created a GBIS project at this property
+* UPRN_EXISTS_THIRD - Another GBIS project exists at this property
+* UPRN_EXISTS_FIRST_AND_THIRD - The TMLN and another party have created GBIS projects at this property
+
+| Field                      | Information                              |
+| -------------------------- | ---------------------------------------- |
+| ownerTMLN                  | The TMLN to check                        |
+| uprn                       | The UPRn to check                        |
+
+#### Response
+
+```json
+{
+  "ownerTMLN": "300943",
+  "uprn": "100050092133"
+}
+```
+
+##### Example Response
+
+```json
+{
+  "uprn": "100050092133",
+  "checkedTMLN": "300943",
+  "checkedFundType": "GBIS",
+  "code": "UPRN_EXISTS_FIRST_AND_THIRD"
+}
+```
+
 ## Postman Examples
 
 An example collection is available to import, copy this link `https://api.postman.com/collections/3727645-907dba1b-ce31-4832-a74a-432025b33f60?access_key=PMAT-01GJYYM718PHXEPSBEQYW7MK6G` and use the 'Import From Link' feature in Postman. Once imported, update the variables in the API Collection with your own x-api-key as provided by TrustMark.
