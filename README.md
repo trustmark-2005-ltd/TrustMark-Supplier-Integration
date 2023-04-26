@@ -401,7 +401,7 @@ Your response data will be split into successful and failed responses with each 
 
 > POST /api/RetrofitProjectUPRNStatus
 
-Checks for existing projects under the GBIS fund against the project owner TMLN (The Retrofit Cooridnator who created it) and UPRN provided.
+Checks for existing projects under the GBIS against the project owner TMLN (the Retrofit Coordinator who created it) and UPRN provided.
 
 Returns a code to indicate the existence of any existing projects against the UPRN and TMLN. The code will be one of the following:
 * OK - nothing found
