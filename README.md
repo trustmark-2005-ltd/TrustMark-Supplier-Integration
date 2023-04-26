@@ -4,9 +4,9 @@
 
 The TrustMark Supplier.IntegrationApi (SIAPI) allows consumers (Energy Suppliers) to query Projects and Measures that exist within the TrustMark Retrofit Platform under ECO4 and GB Insulation Scheme for purposes of verifying data correctness to improve downstream Ofgem processes.
 
-This allows suppliers to be able to check that the data they hold about a project / measure is consistent with that lodged with TrustMark before notifying Ofgem of the measure. This new service does not return a match / mismatch against data attributes, it returns the values provided to TrustMark by the party lodging the measure. 
+This allows suppliers to be able to check that the data they hold about a project / measure is consistent with that lodged with TrustMark before notifying Ofgem of the measure. This new service does not return a match / mismatch against data attributes, it returns the values provided to TrustMark by the party lodging the measure.
 
-Notes: 
+Notes:
 * This may be subject to change due to Ofgem requirements.
 * General project and lodgement concepts resource [Retrofit Integration API](https://github.com/trustmark-2005-ltd/TrustMark-Retrofit-Integration).
 * Meassure details can be found in the [Data Dictionary](https://www.trustmark.org.uk/tradespeople/data-warehouse) and items relating to PAS2035 defects and eligibility can be found in the [Structured Retrofit Data Model](https://www.trustmark.org.uk/tradespeople/data-warehouse).
@@ -51,17 +51,17 @@ Provides Project data for the project reference provided which can be accessed a
 | --------------------------------- | ---------------------------------------- |
 | projectReference                  | The project reference of the Project for this Lodgement to be associated with e.g. P1000 |
 | projectType                       | ECO4 / GBIS |
-| address                           |      | 
-| propertyType                      |      | 
-| createdDate                       |      | 
-| isComplete                        | true / false     | 
-| completionDate                    |      | 
-| startSAPScore                     |      |               
-| finalSAPScore                     |      | 
-| status                            | Draft / inProgress / Complete      | 
-| retrofitAssessmentId              |      | 
-| completionCertificateNumber       |  e.g. P1000-C    | 
-| premisesTenure                    |      | 
+| address                           |      |
+| propertyType                      |      |
+| createdDate                       |      |
+| isComplete                        | true / false     |
+| completionDate                    |      |
+| startSAPScore                     |      |
+| finalSAPScore                     |      |
+| status                            | Draft / inProgress / Complete      |
+| retrofitAssessmentId              |      |
+| completionCertificateNumber       |  e.g. P1000-C    |
+| premisesTenure                    |      |
 | projectDefects [] | Array of new defects that have been identified |
 | - defectType | Condensation, Cracks / Pointing Defects, Leaks, Mould Growth, Rising Damp, Rubble in Cavity, Structural Defect, Wet Rot / Dry Rot, Other  |
 | - repairCost |  |
@@ -414,12 +414,32 @@ Returns a code to indicate the existence of any existing projects against the UP
 | ownerTMLN                  | The TMLN to check                        |
 | uprn                       | The UPRn to check                        |
 
-#### Response
+#### Request
+
+```json
+{
+  "ownerTMLN": "string",
+  "uprn": "string"
+}
+```
+
+##### Example Request
 
 ```json
 {
   "ownerTMLN": "300943",
   "uprn": "100050092133"
+}
+```
+
+#### Response
+
+```json
+{
+  "uprn": "string",
+  "checkedTMLN": "string",
+  "checkedFundType": "string",
+  "code": "string"
 }
 ```
 
