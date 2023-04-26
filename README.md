@@ -109,7 +109,7 @@ Accepts an array of project references and postcode pairs. Each pair must be a c
   },
   {
     "projectReference": "P4307",
-    "postcode": "NG4 6OP"
+    "postcode": "RG21 4EB"
   }
 ]
 ```
