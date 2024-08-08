@@ -454,8 +454,3 @@ Returns a code to indicate the existence of any existing projects against the UP
 }
 ```
 
-## Postman Examples
-
-An example collection is available to import, copy this link `https://api.postman.com/collections/3727645-907dba1b-ce31-4832-a74a-432025b33f60?access_key=PMAT-01GJYYM718PHXEPSBEQYW7MK6G` and use the 'Import From Link' feature in Postman. Once imported, update the variables in the API Collection with your own x-api-key as provided by TrustMark.
-
-If you don't have Postman installed, you can get a copy here https://www.postman.com
