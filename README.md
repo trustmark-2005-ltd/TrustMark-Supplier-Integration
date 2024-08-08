@@ -594,17 +594,12 @@ The `projectChanges` and `measuresAmended` fields will contain an array of chang
 
 | Field         | Description |
 | ------------- | ----------- |
-| FreeTextDetails | Text that appears on the TrustMark Certificate |
 | HandoverDate  | The date the measure was handed over |
 | IsInnovationMeasure | Is the measure an Innovation Measure |
 | InnovationMeasureProduct | The product of the Innovation Measure |
 | InstalledDate | The date the measure was installed |
-| ProductManufacturer | The manufacturer of the product installed |
 | ProductModel  | The model of the product installed |
-| ProductVersion | The version of the product installed |
 | MeasureType   | The type of measure installed |
-| WorkCarriedOutBySchemeId | The SchemeId the work was completed under |
-| WorkCarriedOutBySchemeName | The Scheme the work was completed under |
 | WorkCarriedOutByTMLN | The TMLN of the business who installed the measure |
 | RegisteredBusinessName | The name of the business who installed the measure |
 | WorkTypeCode  | The Work Type Code (DW) of the measure |
