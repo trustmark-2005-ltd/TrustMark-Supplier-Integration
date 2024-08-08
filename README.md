@@ -454,3 +454,158 @@ Returns a code to indicate the existence of any existing projects against the UP
 }
 ```
 
+## Amendments
+
+During the course of a Project and Lodgement lifetime, it is possible that the data may need to be amended. This can be done by the Retrofit Coordinator who created the Project or Lodgement using the TrustMark Retrofit Platform.
+
+As the Energy Supplier, you can receive a notification of any amendments made to a Project or Measure that Ofgem have confirmed your involvement in by suppling the Measure Reference Number (MRN) for the Measure by (Unique Measure Reference) UMR.
+
+TrustMark offer a service to notify you of these amendedments on request in the form of a webhook or email.
+
+### Webhook
+
+TrustMark will push real-time notifications to your webhook URL when an amendment is made to a Project or Measure that you are involved in.
+
+Request to use this service with TrustMark by providing a webhook URL and HTTP header key and secret value, who will then configure the service to send notifications to your URL.
+
+#### Example Webhook Payload
+
+```json
+{
+  "eventType": "Amendment",
+  "eventTime": "2024-08-08T22:56:22.958+00:00",
+  "environment": "uat",
+  "eventData": {
+    "projectReference": "P16284",
+    "rcTMLN": "10000",
+    "rcName": "TrustMark Coordinator Ltd",
+    "projectChanges": [
+      {
+        "field": "SAPScore",
+        "oldValue": "53",
+        "newValue": "63"
+      }
+    ],
+    "measuresAmended": [
+      {
+        "umr": "P16284FJ8T",
+        "mrn": "SUPABC",
+        "changes": [
+          {
+            "field": "InstalledDate",
+            "oldValue": "27/Jun/2022",
+            "newValue": "10/Sep/2023"
+          },
+          {
+            "field": "HandoverDate",
+            "oldValue": "27/Jun/2022",
+            "newValue": "10/Sep/2023"
+          },
+          {
+            "field": "ProductModel",
+            "oldValue": "string",
+            "newValue": "string change"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+#### Event Type
+
+Check the `eventType` field to determine the type of event that has occurred.
+
+| Event Type | Description |
+| ---------- | ----------- |
+| Amendment  | An amendment has been made to a Project or Measure that you are involved in |
+
+#### Environment
+
+Check the `environment` field to determine the environment the event occurred in. This will be either `uat`, `sandbox` or `live`
+
+
+### Email
+
+TrustMark will send you an email notification when an amendment is made to a Project or Measure that you are involved in.
+
+Request to use this service with TrustMark by providing an email address to send notifications to.
+
+#### Example Email Notification
+
+```text
+Subject: TrustMark Retrofit Platform - Amendment Notification - P16284 [ P16284FJ8T ]
+
+Body:
+{
+  "eventType": "Amendment",
+  "eventTime": "2024-08-08T22:56:22.958+00:00",
+  "environment": "uat",
+  "eventData": {
+    "projectReference": "P16284",
+    "rcTMLN": "10000",
+    "rcName": "TrustMark Coordinator Ltd",
+    "projectChanges": [
+      {
+        "field": "SAPScore",
+        "oldValue": "53",
+        "newValue": "63"
+      }
+    ],
+    "measuresAmended": [
+      {
+        "umr": "P16284FJ8T",
+        "mrn": "SUPABC",
+        "changes": [
+          {
+            "field": "InstalledDate",
+            "oldValue": "27/Jun/2022",
+            "newValue": "10/Sep/2023"
+          },
+          {
+            "field": "HandoverDate",
+            "oldValue": "27/Jun/2022",
+            "newValue": "10/Sep/2023"
+          },
+          {
+            "field": "ProductModel",
+            "oldValue": "string",
+            "newValue": "string change"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Field List
+
+The `projectChanges` and `measuresAmended` fields will contain an array of changes made to the Project or Measure.
+
+#### Project Changes
+
+| Field     | Description |
+| --------- | ----------- |
+| SAPScore  | The SAP Score which also indicates the POST RdSAP file has changed |
+
+#### Measure Changes
+
+| Field         | Description |
+| ------------- | ----------- |
+| FreeTextDetails | Text that appears on the TrustMark Certificate |
+| HandoverDate  | The date the measure was handed over |
+| IsInnovationMeasure | Is the measure an Innovation Measure |
+| InnovationMeasureProduct | The product of the Innovation Measure |
+| InstalledDate | The date the measure was installed |
+| ProductManufacturer | The manufacturer of the product installed |
+| ProductModel  | The model of the product installed |
+| ProductVersion | The version of the product installed |
+| MeasureType   | The type of measure installed |
+| WorkCarriedOutBySchemeId | The SchemeId the work was completed under |
+| WorkCarriedOutBySchemeName | The Scheme the work was completed under |
+| WorkCarriedOutByTMLN | The TMLN of the business who installed the measure |
+| RegisteredBusinessName | The name of the business who installed the measure |
+| WorkTypeCode  | The Work Type Code (DW) of the measure |
+
