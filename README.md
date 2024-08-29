@@ -454,3 +454,139 @@ Returns a code to indicate the existence of any existing projects against the UP
 }
 ```
 
+## Amendments
+
+During the course of a Project and Lodgement lifetime, it is possible that the data may need to be amended. This can be done by the Retrofit Coordinator who created the Project or Lodgement using the TrustMark Retrofit Platform.
+
+As the Energy Supplier, you can receive a notification of any amendments made to a Project or Measure that Ofgem have confirmed your involvement in by suppling the Measure Reference Number (MRN) for the Measure by (Unique Measure Reference) UMR.
+
+TrustMark offer a service to notify you of these amendedments on request in the form of a webhook or email.
+
+### Webhook
+
+TrustMark will push real-time notifications to your webhook URL when an amendment is made to a Project or Measure that you are involved in.
+
+Request to use this service with TrustMark by providing a webhook URL and HTTP header key and secret value, who will then configure the service to send notifications to your URL.
+
+#### Example Webhook Payload
+
+```json
+{
+  "EventType": "Amendment",
+  "EventDate": "2024-08-24T10:35:49.8947069Z",
+  "NotificationId": "175a3808-7384-4886-ae84-9dd2d7be2f3a",
+  "Environment": "uat",
+  "EnergySupplier": "SupplierABC",
+  "EventData": {
+    "ProjectReference": "P1000",
+    "RcTMLNumber": "100000",
+    "RcName": "TrustMark RC",
+    "ProjectChanges": null,
+    "MeasuresAmended": [
+      {
+        "Umr": "P1000NY66",
+        "Mrn": "ABC001",
+        "Changes": [
+          {
+            "Field": "InstalledDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
+          },
+          {
+            "Field": "HandoverDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
+          }
+        ]
+      }
+    ]
+  },
+  "DeduplicationId": "feee0323-a742-470d-beed-a8c65690cde8"
+}
+```
+
+#### Event Type
+
+Check the `eventType` field to determine the type of event that has occurred.
+
+| Event Type | Description |
+| ---------- | ----------- |
+| Amendment  | An amendment has been made to a Project or Measure that you are involved in |
+
+#### Environment
+
+Check the `environment` field to determine the environment the event occurred in. This will be either `uat`, `sandbox` or `live`
+
+
+### Email
+
+TrustMark will send you an email notification when an amendment is made to a Project or Measure that you are involved in.
+
+Request to use this service with TrustMark by providing an email address to send notifications to.
+
+#### Example Email Notification
+
+```text
+Subject: TrustMark Retrofit Platform - Amendment Notification - 100000 [ P1000NY66 ] DDID feee0323-a742-470d-beed-a8c65690cde8
+
+Body:
+
+{
+  "EventType": "Amendment",
+  "EventDate": "2024-08-24T10:35:49.8947069Z",
+  "NotificationId": "175a3808-7384-4886-ae84-9dd2d7be2f3a",
+  "Environment": "uat",
+  "EnergySupplier": "SupplierABC",
+  "EventData": {
+    "ProjectReference": "P1000",
+    "RcTMLNumber": "100000",
+    "RcName": "TrustMark RC",
+    "ProjectChanges": null,
+    "MeasuresAmended": [
+      {
+        "Umr": "P1000NY66",
+        "Mrn": "ABC001",
+        "Changes": [
+          {
+            "Field": "InstalledDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
+          },
+          {
+            "Field": "HandoverDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
+          }
+        ]
+      }
+    ]
+  },
+  "DeduplicationId": "feee0323-a742-470d-beed-a8c65690cde8"
+}
+```
+
+### Field List
+
+The `projectChanges` and `measuresAmended` fields will contain an array of changes made to the Project or Measure.
+
+#### Project Changes
+
+| Field     | Description |
+| --------- | ----------- |
+| SAPScore  | The SAP Score which also indicates the POST RdSAP file has changed |
+
+#### Measure Changes
+
+| Field         | Description |
+| ------------- | ----------- |
+| HandoverDate  | The date the measure was handed over |
+| IsInnovationMeasure | Is the measure an Innovation Measure |
+| InnovationMeasureProduct | The product of the Innovation Measure |
+| InstalledDate | The date the measure was installed |
+| ProductModel  | The model of the product installed |
+| MeasureType   | The type of measure installed |
+| WorkCarriedOutByTMLN | The TMLN of the business who installed the measure |
+| RegisteredBusinessName | The name of the business who installed the measure |
+| WorkTypeCode  | The Work Type Code (DW) of the measure |
+| UMR | A new measure has been added |
+
