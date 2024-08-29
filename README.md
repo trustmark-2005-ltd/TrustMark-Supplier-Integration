@@ -472,44 +472,36 @@ Request to use this service with TrustMark by providing a webhook URL and HTTP h
 
 ```json
 {
-  "eventType": "Amendment",
-  "eventTime": "2024-08-08T22:56:22.958+00:00",
-  "environment": "uat",
-  "eventData": {
-    "projectReference": "P16284",
-    "rcTMLN": "10000",
-    "rcName": "TrustMark Coordinator Ltd",
-    "projectChanges": [
+  "EventType": "Amendment",
+  "EventDate": "2024-08-24T10:35:49.8947069Z",
+  "NotificationId": "175a3808-7384-4886-ae84-9dd2d7be2f3a",
+  "Environment": "uat",
+  "EnergySupplier": "SupplierABC",
+  "EventData": {
+    "ProjectReference": "P1000",
+    "RcTMLNumber": "100000",
+    "RcName": "TrustMark RC",
+    "ProjectChanges": null,
+    "MeasuresAmended": [
       {
-        "field": "SAPScore",
-        "oldValue": "53",
-        "newValue": "63"
-      }
-    ],
-    "measuresAmended": [
-      {
-        "umr": "P16284FJ8T",
-        "mrn": "SUPABC",
-        "changes": [
+        "Umr": "P1000NY66",
+        "Mrn": "ABC001",
+        "Changes": [
           {
-            "field": "InstalledDate",
-            "oldValue": "27/Jun/2022",
-            "newValue": "10/Sep/2023"
+            "Field": "InstalledDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
           },
           {
-            "field": "HandoverDate",
-            "oldValue": "27/Jun/2022",
-            "newValue": "10/Sep/2023"
-          },
-          {
-            "field": "ProductModel",
-            "oldValue": "string",
-            "newValue": "string change"
+            "Field": "HandoverDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
           }
         ]
       }
     ]
-  }
+  },
+  "DeduplicationId": "feee0323-a742-470d-beed-a8c65690cde8"
 }
 ```
 
@@ -535,48 +527,41 @@ Request to use this service with TrustMark by providing an email address to send
 #### Example Email Notification
 
 ```text
-Subject: TrustMark Retrofit Platform - Amendment Notification - P16284 [ P16284FJ8T ]
+Subject: TrustMark Retrofit Platform - Amendment Notification - 100000 [ P1000NY66 ] DDID feee0323-a742-470d-beed-a8c65690cde8
 
 Body:
+
 {
-  "eventType": "Amendment",
-  "eventTime": "2024-08-08T22:56:22.958+00:00",
-  "environment": "uat",
-  "eventData": {
-    "projectReference": "P16284",
-    "rcTMLN": "10000",
-    "rcName": "TrustMark Coordinator Ltd",
-    "projectChanges": [
+  "EventType": "Amendment",
+  "EventDate": "2024-08-24T10:35:49.8947069Z",
+  "NotificationId": "175a3808-7384-4886-ae84-9dd2d7be2f3a",
+  "Environment": "uat",
+  "EnergySupplier": "SupplierABC",
+  "EventData": {
+    "ProjectReference": "P1000",
+    "RcTMLNumber": "100000",
+    "RcName": "TrustMark RC",
+    "ProjectChanges": null,
+    "MeasuresAmended": [
       {
-        "field": "SAPScore",
-        "oldValue": "53",
-        "newValue": "63"
-      }
-    ],
-    "measuresAmended": [
-      {
-        "umr": "P16284FJ8T",
-        "mrn": "SUPABC",
-        "changes": [
+        "Umr": "P1000NY66",
+        "Mrn": "ABC001",
+        "Changes": [
           {
-            "field": "InstalledDate",
-            "oldValue": "27/Jun/2022",
-            "newValue": "10/Sep/2023"
+            "Field": "InstalledDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
           },
           {
-            "field": "HandoverDate",
-            "oldValue": "27/Jun/2022",
-            "newValue": "10/Sep/2023"
-          },
-          {
-            "field": "ProductModel",
-            "oldValue": "string",
-            "newValue": "string change"
+            "Field": "HandoverDate",
+            "OldValue": "04/Aug/2022",
+            "NewValue": "05/Aug/2022"
           }
         ]
       }
     ]
-  }
+  },
+  "DeduplicationId": "feee0323-a742-470d-beed-a8c65690cde8"
 }
 ```
 
@@ -603,4 +588,5 @@ The `projectChanges` and `measuresAmended` fields will contain an array of chang
 | WorkCarriedOutByTMLN | The TMLN of the business who installed the measure |
 | RegisteredBusinessName | The name of the business who installed the measure |
 | WorkTypeCode  | The Work Type Code (DW) of the measure |
+| UMR | A new measure has been added |
 
