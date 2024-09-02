@@ -582,6 +582,7 @@ The `projectChanges` and `measuresAmended` fields will contain an array of chang
 | HandoverDate  | The date the measure was handed over |
 | IsInnovationMeasure | Is the measure an Innovation Measure |
 | InnovationMeasureProduct | The product of the Innovation Measure |
+| InnovationMeasureNumber | The number of the Innovation Measure |
 | InstalledDate | The date the measure was installed |
 | ProductManufacturer  | The manufacturer of the product installed |
 | ProductModel  | The model of the product installed |
