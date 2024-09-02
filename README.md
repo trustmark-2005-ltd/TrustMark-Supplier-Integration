@@ -583,7 +583,9 @@ The `projectChanges` and `measuresAmended` fields will contain an array of chang
 | IsInnovationMeasure | Is the measure an Innovation Measure |
 | InnovationMeasureProduct | The product of the Innovation Measure |
 | InstalledDate | The date the measure was installed |
+| ProductManufacturer  | The manufacturer of the product installed |
 | ProductModel  | The model of the product installed |
+| ProductVersion  | The version of the product installed |
 | MeasureType   | The type of measure installed |
 | WorkCarriedOutByTMLN | The TMLN of the business who installed the measure |
 | RegisteredBusinessName | The name of the business who installed the measure |
