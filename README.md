@@ -26,7 +26,7 @@ Payable by the party signing the Data Sharing Agreement.
 | Service                  | Fee (+VAT)               | Notes                                                            |
 | ------------------------ | ------------------------ | ---------------------------------------------------------------- |
 | Setup                    | £1500                    |                                                                  |
-| Annual Service Charge    | £4750                    |  Annual increase capped at RPI +3%                               |
+| Annual Service Charge    | £4750                    |  Annual increase capped at CPI +3%                               |
 
 
 ### Response Codes
