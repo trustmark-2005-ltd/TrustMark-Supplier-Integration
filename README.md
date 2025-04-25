@@ -289,6 +289,9 @@ Provides measure data for the UMR provided which can be accessed at any point du
 | improvementOptionEvaluationMeasureId | Links to porject record |
 | eco4Name |  e.g 'CWI_0.040' Value from the Data Dictionary WorkType sheet |
 | workTypeCode | e.g. DW-101 Value from the Data Dictionary WorkType sheet |
+| umrCalledByAnotherSupplier | true is another supplier has called this UMR; otherwise false |
+| measureCost | Value supplied as the cost of the measure |
+| customerContribution | Value supplied as teh customer contribution |
 
 
 #### Request
