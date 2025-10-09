@@ -79,10 +79,17 @@ Provides Project data for the project reference provided which can be accessed a
 | - eco4Name     | |
 | - workTypeCode | |
 | - improvementOptionEvaluationMeasureId  | Can be used to track which measures evaluataion was installed |
+| lodgedMeasures | Unavailable for suppliers, will be null |
+| countLodgedCompleteMeasures | Total number of measures at Complete status |
 | totalRepairCost | |
 | actualRepairCost | Actual cost of repairs as lodged |
 | floorAreaM2 | e.g. 121.4 |
 | buildingServicesGas | Y / N |
+| startRdSAPFile | Unavailable for suppliers, will be null |
+| endRdSAPFile | Unavailable for suppliers, will be null |
+| coordinatorTMLN | TMLN for the RC of the project |
+| assessorTMLN | TMLN for the RA of the assessment |
+| sapVersion | Version of the RdSAP file supplied |
 | isSuccess | true / false |
 | message | Project Reference P1000|
 
@@ -227,12 +234,17 @@ Your response data will be split into successful and failed responses with each 
             "improvementOptionEvaluationMeasureId": "274096be-2755-4d4b-87cb-0480b47ffc4b"
           }
         ],
+        "lodgedMeasures": null,
+        "countLodgedCompleteMeasures": 1,
         "totalRepairCost": 0,
         "actualRepairCost": 80,
         "floorAreaM2": 63,
         "buildingServicesGas": "Y",
         "startRdSAPFile": null,
-        "endRdSAPFile": null
+        "endRdSAPFile": null,
+        "coordinatorTMLN": "1337025",
+        "assessorTMLN": "1337025",
+        "sapVersion": "RdSAP [9.94]"
       },
       "isSuccess": true,
       "message": "Project Reference P4306"
